@@ -56,7 +56,7 @@ def refresh() {
 
 	state.tryCount = state.tryCount + 1
     
-    if (state.tryCount > 3 && device.currentValue('presence') == "present") {
+    if (state.tryCount > 3 && device.currentValue('presence') != "not present") {
         def descriptionText = "${device.displayName} is OFFLINE";
         log.debug descriptionText
         sendEvent(name: "presence", value: "not present", linkText: deviceName, descriptionText: descriptionText)
