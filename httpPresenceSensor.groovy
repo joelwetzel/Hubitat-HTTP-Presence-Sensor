@@ -30,19 +30,33 @@ metadata {
 				title: "Endpoint URL",
 				required: true				
 			)
+			input (
+				type: "bool",
+				name: "enableDebugLogging",
+				title: "Enable Debug Logging?",
+				required: true,
+				defaultValue: false
+			)
 		}
 	}
 }
 
 
+def log(msg) {
+	if (enableDebugLogging) {
+		log.debug msg
+	}
+}
+
+
 def installed () {
-	log.debug "${device.displayName}: driver installed"
+	log.info "${device.displayName}.installed()"
     updated()
 }
 
 
 def updated () {
-	log.debug "${device.displayName}: driver updated"
+	log.info "${device.displayName}.updated()"
     
     state.tryCount = 0
     
@@ -52,13 +66,13 @@ def updated () {
 
 
 def refresh() {
-	//log.debug "${device.displayName}: refresh()"
+	log "${device.displayName}.refresh()"
 
 	state.tryCount = state.tryCount + 1
     
     if (state.tryCount > 3 && device.currentValue('presence') != "not present") {
         def descriptionText = "${device.displayName} is OFFLINE";
-        log.debug descriptionText
+        log descriptionText
         sendEvent(name: "presence", value: "not present", linkText: deviceName, descriptionText: descriptionText)
     }
     
@@ -80,7 +94,7 @@ def httpGetCallback(response, data) {
 		
 		if (device.currentValue('presence') != "present") {
 			def descriptionText = "${device.displayName} is ONLINE";
-			log.debug descriptionText
+			log descriptionText
 			sendEvent(name: "presence", value: "present", linkText: deviceName, descriptionText: descriptionText)
 		}
 	}
