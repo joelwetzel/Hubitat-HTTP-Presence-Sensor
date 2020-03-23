@@ -77,7 +77,8 @@ def refresh() {
     }
     
 	asynchttpGet("httpGetCallback", [
-		uri: endpointUrl	
+		uri: endpointUrl,
+		timeout: 10
 	]);
 }
 
