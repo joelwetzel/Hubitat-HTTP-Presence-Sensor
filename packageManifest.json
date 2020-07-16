@@ -6,6 +6,8 @@
 	"dateReleased": "2020-07-14",
 	"licenseFile": "https://raw.githubusercontent.com/joelwetzel/Hubitat-Auto-Shades/master/LICENSE",
 	"releaseNotes": "Initial release through Hubitat Package Manager.",
+	"communityLink": "https://community.hubitat.com/t/updated-http-presence-sensor",
+	"documentationLink": "https://github.com/joelwetzel/Hubitat-HTTP-Presence-Sensor",
   "drivers" : [
 		{
 			"id": "2510fae1-e238-4d60-be86-195ab0d4c452",
