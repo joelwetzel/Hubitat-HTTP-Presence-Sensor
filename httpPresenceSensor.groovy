@@ -1,5 +1,5 @@
 /**
- *  HTTP Presence Sensor
+ *  HTTP Presence Sensor v1.0
  *
  *  Copyright 2019 Joel Wetzel
  *
@@ -78,7 +78,7 @@ def refresh() {
     
 	asynchttpGet("httpGetCallback", [
 		uri: endpointUrl,
-		timeout: 10
+        timeout: 10
 	]);
 }
 
@@ -100,5 +100,4 @@ def httpGetCallback(response, data) {
 		}
 	}
 }
-
 
