@@ -6,6 +6,11 @@ A virtual presence sensor for Hubitat that determines its state by trying to acc
 - When running HomeBridge on a Raspberry Pi, sometimes the homebridge process stops responding to HomeKit and Hubitat.  Use this virtual device to regularly check and see if HomeBridge is still up and running.  If it isn't, you can use Rule Machine rules to cycle the power on the Raspberry Pi.  (I have my RPi plugged into a z-wave outlet for this reason.)
 
 ## Installation
+
+The best way to install this code is by using [Hubitat Package Manager](https://community.hubitat.com/t/beta-hubitat-package-manager).
+
+However, if you must install manually:
+
 1. Open your Hubitat web page
 2. Go to the "Drivers Code" page
 3. Click "+ New Driver"
